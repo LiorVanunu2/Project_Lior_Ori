@@ -1,7 +1,7 @@
 import pygame
 
 # Set the size of each cell in the screen
-size = 10
+size = 20
 black_color = (10, 10, 10)
 grid_color = (40, 40, 40)
 
