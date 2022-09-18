@@ -8,3 +8,6 @@ SOLDIER_SIZE = (60, 120)
 FLAG_IMAGE = 'flag.png'
 FLAG_START = (1000 - 80, 500 - 60)
 FLAG_SIZE = (80, 60)
+
+MINE_IMAGE = 'mine.png'
+MINE_SIZE = (20, 60)
