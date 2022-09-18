@@ -1,5 +1,15 @@
 import pygame
 import time
+import os
+import Soldier
+import consts
+
+
+def put_flag():
+    flag_image = pygame.image.load(os.path.join("Pictures", consts.FLAG_IMAGE))
+    screen.blit(flag_image, consts.FLAG_START)
+    pygame.display.update()
+
 
 # Set the size of each cell in the screen
 size = 20
@@ -44,6 +54,4 @@ while True:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
                 create_background_matrix(background_matrix, screen, size)
-
-
-
+    put_flag()
