@@ -54,4 +54,19 @@ while True:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RETURN:
                 create_background_matrix(background_matrix, screen, size)
+
+def init_screen ():
+    pygame.init()
+    num_cols, num_rows = 50, 25
+    screen = pygame.display.set_mode((num_cols * size, num_rows * size))
+    screen.fill(grid_color)
+    pygame.display.flip()
+    pygame.display.update()
+    background_matrix = [[0 for x in range(num_cols)] for y in
+                         range(num_rows)]
+    set_regular_background_color(green_color)
     put_flag()
+
+
+
+
