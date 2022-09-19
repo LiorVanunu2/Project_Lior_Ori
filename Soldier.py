@@ -2,30 +2,29 @@ import Screen
 import pygame
 import os
 import consts
+import time
 
-
-# The moveRight() method takes two arguments. The first one is implicit and is called self.
-# It refers to the current object. The second one is called pixels and refers to the number of pixels we will use to move the car.
-def moveRight(soldier):
-    soldier.rect.x += consts.SIZE
-
-    # self.rect.x += consts.size
-
-
-def moveLeft(self):
-    self.rect.x -= consts.SIZE
-
-
-def moveUp(self):
-    self.rect.y += consts.SIZE
-
-
-def moveDown(self):
-    self.rect.y -= consts.SIZE
 
 def create_soldier():
-    soldier_image = pygame.image.load(os.path.join("Pictures", consts.SOLDIER_IMAGE))
+    soldier_image = pygame.image.load(
+            os.path.join("Pictures", consts.SOLDIER_IMAGE))
     soldier = pygame.transform.scale(soldier_image, consts.SOLDIER_SIZE)
     return soldier
 
 
+def soldier_movement(keys_pressed, soldier_rect):
+    if keys_pressed[
+        pygame.K_LEFT] and 0 < soldier_rect.x * consts.SOLDIER_STEP < consts.SCREEN_WIDTH:
+        soldier_rect.x -= 1
+    if keys_pressed[
+        pygame.K_RIGHT] and 0 < soldier_rect.x * consts.SOLDIER_STEP + consts.SOLDIER_STEP * 2 < consts.SCREEN_WIDTH:
+        soldier_rect.x += 1
+    if keys_pressed[
+        pygame.K_UP] and 0 < soldier_rect.y * consts.SOLDIER_STEP < consts.SCREEN_HEIGHT:
+        soldier_rect.y -= 1
+    if keys_pressed[
+        pygame.K_DOWN] and 0 < soldier_rect.y * consts.SOLDIER_STEP + consts.SOLDIER_STEP * 4 < consts.SCREEN_HEIGHT:
+        soldier_rect.y += 1
+
+# The moveRight() method takes two arguments. The first one is implicit and is called self.
+# It refers to the current object. The second one is called pixels and refers to the number of pixels we will use to move the car.
