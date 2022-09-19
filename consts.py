@@ -1,13 +1,24 @@
 import pygame
 import Screen
 
+SIZE = 20
+BLACK_COLOR = (10, 10, 10)
+GRID_COLOR = (40, 40, 40)
+GREEN_COLOR = (61, 145, 64)
+NUM_COL = 50
+NUM_ROW = 25
+SHOW_MATRIX=1
+
 SOLDIER_IMAGE = 'soldier.png'
-BEGIN_POINT = (0, 0)
-SOLDIER_SIZE = (60, 120)
+SOLDIER_START = [0, 0]
+SOLDIER_SIZE = (40, 80)
 
 FLAG_IMAGE = 'flag.png'
-FLAG_START = (1000 - 80, 500 - 60)
-FLAG_SIZE = (80, 60)
+FLAG_START = ((NUM_COL-4)*SIZE, (NUM_ROW-4)*SIZE)
+FLAG_SIZE = (80, 80)
 
 MINE_IMAGE = 'mine.png'
 MINE_SIZE = (20, 60)
+
+GRASS_IMAGE = 'grass.png'
+GRASS_SIZE = (20, 60)
