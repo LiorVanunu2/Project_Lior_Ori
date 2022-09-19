@@ -1,4 +1,4 @@
-
+import time
 import pygame
 import Screen
 
@@ -9,6 +9,8 @@ GREEN_COLOR = (61, 145, 64)
 NUM_COL = 50
 NUM_ROW = 25
 SHOW_MATRIX = 1
+SCREEN_WIDTH = NUM_COL * SIZE
+SCREEN_HEIGHT = NUM_ROW * SIZE
 
 SOLDIER_IMAGE = 'soldier.png'
 SOLDIER_START = [0, 0]
@@ -24,3 +26,6 @@ MINE_SIZE = (60, 20)
 
 GRASS_IMAGE = 'grass.png'
 GRASS_SIZE = (20, 60)
+
+FPS = 30
+FPS_CLOCK = pygame.time.Clock()
