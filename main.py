@@ -5,6 +5,7 @@ import time
 import MineField
 import Soldier
 
+
 def main():
     run_game = True
     pygame.init()
@@ -13,10 +14,10 @@ def main():
     MineField.mine_list_x()
     MineField.mine_list_y()
     Screen.init_screen()
-    soldier = Soldier.create_soldier()
-
+    soldier_rect = Soldier.create_soldier().get_rect()
 
     while run_game:
+        consts.FPS_CLOCK.tick(consts.FPS)
         for event in pygame.event.get():
             # if user wants to QUIT, close pygame
             if event.type == pygame.QUIT:
@@ -25,15 +26,13 @@ def main():
                 if event.key == pygame.K_RETURN:
                     Screen.draw_grid_background()
                     time.sleep(consts.SHOW_MATRIX)
+            keys_pressed = pygame.key.get_pressed()
+            Soldier.soldier_movement(keys_pressed, soldier_rect)
                     # time.sleep(10)
-                elif event.key == pygame.K_RIGHT:
-                    Soldier.moveRight(soldier)
-                else: pass
+                # elif event.key == pygame.K_RIGHT:
+                #     Soldier.moveRight(soldier)
+                # else: pass
         Screen.init_screen()
-
-
-
-
 
 if __name__ == '__main__':
     main()
