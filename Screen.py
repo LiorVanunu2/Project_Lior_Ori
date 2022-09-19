@@ -17,8 +17,7 @@ def put_flag():
 
 
 def put_soldier():
-    soldier_image = pygame.image.load(os.path.join("Pictures", consts.SOLDIER_IMAGE))
-    soldier = pygame.transform.scale(soldier_image, consts.SOLDIER_SIZE)
+    soldier = Soldier.create_soldier()
     screen.blit(soldier, consts.SOLDIER_START)
 
 
