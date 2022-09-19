@@ -1,5 +1,6 @@
 import Screen
 import pygame
+import os
 import consts
 
 
@@ -21,3 +22,10 @@ def moveUp(self):
 
 def moveDown(self):
     self.rect.y -= consts.SIZE
+
+def create_soldier():
+    soldier_image = pygame.image.load(os.path.join("Pictures", consts.SOLDIER_IMAGE))
+    soldier = pygame.transform.scale(soldier_image, consts.SOLDIER_SIZE)
+    return soldier
+
+
