@@ -3,6 +3,7 @@ import pygame
 import consts
 import time
 import MineField
+import Soldier
 
 def main():
     run_game = True
@@ -12,6 +13,8 @@ def main():
     MineField.mine_list_x()
     MineField.mine_list_y()
     Screen.init_screen()
+    soldier = Soldier.create_soldier()
+
 
     while run_game:
         for event in pygame.event.get():
@@ -23,6 +26,8 @@ def main():
                     Screen.draw_grid_background()
                     time.sleep(consts.SHOW_MATRIX)
                     # time.sleep(10)
+                elif event.key == pygame.K_RIGHT:
+                    Soldier.moveRight(soldier)
                 else: pass
         Screen.init_screen()
 
