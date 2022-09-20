@@ -51,3 +51,7 @@ def mine_list_y():
         ran_num = random.randint(0, consts.NUM_COL * 20 - 1 - consts.MINE_SIZE[1])
         list_y.append(ran_num)
     dic_list_xy_mine['list_y'] = list_y
+
+def soldier_touch_flage(place_soldier):
+
+    pass
