@@ -27,12 +27,14 @@ def main():
                     Screen.draw_grid_background()
                     time.sleep(consts.SHOW_MATRIX)
             keys_pressed = pygame.key.get_pressed()
-            Soldier.soldier_movement(keys_pressed, soldier_rect)
-                    # time.sleep(10)
-                # elif event.key == pygame.K_RIGHT:
-                #     Soldier.moveRight(soldier)
-                # else: pass
+            soldier_new_rect = Soldier.soldier_movement(keys_pressed, soldier_rect)
+
+            # time.sleep(10)
+            # elif event.key == pygame.K_RIGHT:
+            #     Soldier.moveRight(soldier)
+            # else: pass
         Screen.init_screen()
+
 
 if __name__ == '__main__':
     main()
