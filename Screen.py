@@ -6,7 +6,8 @@ import consts
 import random
 import MineField
 
-screen = pygame.display.set_mode((consts.NUM_COL * consts.SIZE, consts.NUM_ROW * consts.SIZE))
+screen = pygame.display.set_mode(
+        (consts.NUM_COL * consts.SIZE, consts.NUM_ROW * consts.SIZE))
 dic_list_xy = {}
 
 
@@ -29,7 +30,9 @@ def place_x_grass():
     """
     list_x = []
     for i in range(20):
-        ran_num = random.randint(0, consts.NUM_COL * 20 - 1 - consts.GRASS_SIZE[0])
+        ran_num = random.randint(0,
+                                 consts.NUM_COL * 20 - 1 - consts.GRASS_SIZE[
+                                     0])
         list_x.append(ran_num)
     dic_list_xy['list_x'] = list_x
 
@@ -41,7 +44,9 @@ def place_y_grass():
     """
     list_Y = []
     for i in range(20):
-        ran_num = random.randint(0, consts.NUM_ROW * 20 - 1 - consts.GRASS_SIZE[1])
+        ran_num = random.randint(0,
+                                 consts.NUM_ROW * 20 - 1 - consts.GRASS_SIZE[
+                                     1])
         list_Y.append(ran_num)
     dic_list_xy['list_y'] = list_Y
 
@@ -55,7 +60,8 @@ def put_grass():
     list_y = dic_list_xy['list_y']
 
     for i in range(20):
-        grass_image = pygame.image.load(os.path.join("Pictures", consts.GRASS_IMAGE))
+        grass_image = pygame.image.load(
+            os.path.join("Pictures", consts.GRASS_IMAGE))
         grass = pygame.transform.scale(grass_image, consts.GRASS_SIZE)
         screen.blit(grass, (list_x[i], list_y[i]))
 
@@ -68,34 +74,36 @@ def put_mine():
     list_x = MineField.dic_list_xy_mine['list_x']
     list_y = MineField.dic_list_xy_mine['list_y']
     for i in range(20):
-        mine_image = pygame.image.load(os.path.join("Pictures", consts.MINE_IMAGE))
+        mine_image = pygame.image.load(
+            os.path.join("Pictures", consts.MINE_IMAGE))
         mine = pygame.transform.scale(mine_image, consts.MINE_SIZE)
         screen.blit(mine, (list_x[i], list_y[i]))
 
 
-def create_background_matrix(matrix, screen, size):
-    num_rows = len(matrix)
-    num_cols = len(matrix[0])
-    # run over all the cells in the current matrix
-    for i in range(num_rows):
-        for j in range(num_cols):
-            color = consts.BLACK_COLOR
-            pygame.draw.rect(screen, color,
-                             (j * size, i * size, size - 1, size - 1))
-    #         להוסיף קריאה לפונקציה ליצירת מוקשים וגם פונקציה להראות את החייל
-    pygame.display.update()
-    put_flag()
-    put_soldier()
-    put_mine()
-    pygame.display.update()
+# def create_background_matrix(matrix, screen, size):
+#     num_rows = len(matrix)
+#     num_cols = len(matrix[0])
+#     # run over all the cells in the current matrix
+#     for i in range(num_rows):
+#         for j in range(num_cols):
+#             color = consts.BLACK_COLOR
+#             pygame.draw.rect(screen, color,
+#                              (j * size, i * size, size - 1, size - 1))
+#     #         להוסיף קריאה לפונקציה ליצירת מוקשים וגם פונקציה להראות את החייל
+#     pygame.display.update()
+#     put_flag()
+#     put_soldier()
+#     put_mine()
+#     pygame.display.update()
 
 
-def draw_grid_background():
+def draw_grid_background(soldier):
     pygame.display.flip()
     pygame.display.update()
     # Create zeros matrix
-    matrix = [[0 for x in range(consts.NUM_COL)] for y in range(consts.NUM_ROW)]
-    MineField.create_background_matrix(matrix, screen, consts.SIZE)
+    matrix = [[0 for x in range(consts.NUM_COL)] for y in
+              range(consts.NUM_ROW)]
+    MineField.create_background_matrix(matrix, screen, consts.SIZE, soldier)
 
 
 pygame.init()
@@ -111,6 +119,6 @@ background_matrix = [[0 for x in range(num_cols)] for y in
 def init_screen():
     screen.fill(consts.GREEN_COLOR)
     put_flag()
-    put_soldier()
+    # put_soldier()
     put_grass()
     pygame.display.update()
